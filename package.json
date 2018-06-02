@@ -1,0 +1,27 @@
+{
+  "name": "gcloud-tokenserver",
+  "version": "1.0.0",
+  "description": "Google token server for service accounts.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freedomson/gcloud-tokenserver.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/freedomson/gcloud-tokenserver/issues"
+  },
+  "homepage": "https://github.com/freedomson/gcloud-tokenserver#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "google-auto-auth": "^0.10.1",
+    "morgan": "^1.9.0",
+    "object-assign": "^4.1.1"
+  }
+}
