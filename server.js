@@ -20,7 +20,8 @@ app.get('/', function (req, res) {
 app.get('/gettoken', function (req, res) {
   //auth.authorizeRequest({/*...*/}, function (err, authorizedReqOpts) {});
   auth.getToken(function (err, token) { 
-    if (req.headers.token!==process.env.APP_CODE)
+    console.log('DUMPING HEADERS',req.headers);
+    if (req.headers.token!==process.env.APP_CODE || !process.env.APP_CODE)
       res.status(500).send('Something bad happened!'); 
     else
       res.json({"token": token});
@@ -44,13 +45,13 @@ module.exports = app ;
   var authConfig = {};
    
   // path to a key:
-  authConfig.keyFilename = 'key.json';
+  //authConfig.keyFilename = 'key.json';
    /*
-  // or a credentials object:
-  authConfig.credentials = {
-    client_email: '...',
-    private_key: '...'
-  };*/
+  // or a credentials object:*/
+  authConfig.credentials = JSON.parse(process.env.APP_KEY)/*{
+    // client_email: '...',
+    // private_key: '...'
+  }*/
   authConfig.scopes = ['https://www.googleapis.com/auth/cloud-platform']
   // Create a client
   var auth = googleAuth(authConfig);
